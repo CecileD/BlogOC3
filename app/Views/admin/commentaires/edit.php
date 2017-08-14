@@ -3,5 +3,5 @@
     <?= $form->input('contenu_comment', 'Contenu', ['type' => 'textarea']); ?>
     <?= $form->input('signalement', '0 OK; 1 SIGNALE'); ?>
     <?= $form->input('chapitre_id', 'Chapitre concerné'); ?>
-    <button class="btn btn-primary">Sauvegarder</button>
+    <button class="btn btn-success">Sauvegarder</button>
 </form>
