@@ -1,6 +1,8 @@
 tinymce.init({
     /* replace textarea having class .tinymce with tinymce editor */
     selector: "textarea",
+    language: 'fr_FR',
+
 
     /* theme of the editor */
     theme: "modern",

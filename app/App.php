@@ -16,6 +16,10 @@ class App{
         return self::$_instance;
     }
 
+    /**
+     * Initialisation de la session, enregistrement des autoloader
+     * (initialisation de la pile permettant le chargement des fichiers de classe à la volée)
+     */
     public static function chargement(){
         session_start();
         require ROOT . '/app/Autoloader.php';
