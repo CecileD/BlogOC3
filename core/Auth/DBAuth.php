@@ -25,14 +25,11 @@ class DBAuth {
      */
     public function connexion($username, $password){
         $user = $this->db->prepare('SELECT * FROM auteurs WHERE pseudo_auteur = ?', [$username], null, true);
-        var_dump(sha1($password));
-        if($user){
-            if($user->motdepasse_auteur === $password){
-                $_SESSION['auth'] = $user->id;
-                return true;
-            }
-        }
-        return false;
+        $hash=$user->motdepasse_auteur;
+        if($user and password_verify($password,$hash)){
+                return true;}
+        else {
+                return false;}
     }
 
     public function estConnecte(){
