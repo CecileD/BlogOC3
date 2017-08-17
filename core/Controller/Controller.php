@@ -7,6 +7,11 @@ class Controller{
     protected $viewPath;
     protected $template;
 
+    /**
+     * Gestion des vues
+     * @param $view
+     * @param array $variables
+     */
     protected function render($view, $variables = []){
         ob_start();
         extract($variables);
@@ -15,14 +20,21 @@ class Controller{
         require($this->viewPath . 'templates/' . $this->template . '.php');
     }
 
-    protected function forbidden(){
+    /**
+     *Gére le message en cas de demande d'une page nécessitant une identification
+     */
+    public function forbidden()
+    {
         header('HTTP/1.0 403 Forbidden');
-        die('Acces interdit');
+        die('ACCES INTERDIT');
     }
 
-    protected function notFound(){
+    /**
+     *
+     */
+    public function notFound(){
         header('HTTP/1.0 404 Not Found');
-        die('Page introuvable');
+        die('PAGE INTROUVABLE');
     }
 
 }

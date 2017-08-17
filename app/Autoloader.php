@@ -14,7 +14,7 @@ class Autoloader{
     }
 
     /**
-     * Inclue le fichier correspondant à notre classe
+     * Charge la classe
      * @param $class string Le nom de la classe à charger
      */
     static function autoload($class){

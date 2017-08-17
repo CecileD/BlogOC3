@@ -15,6 +15,11 @@ class CommentaireTable extends Table {
 
     protected $table = 'commentaires';
 
+    /**
+     * Sélectionne les commentaires associés à un chapitre.
+     * @param $chapitre_id
+     * @return mixed
+     */
     public function findWithCommentaire($chapitre_id){
         return $this->requete("
             SELECT commentaires.id, commentaires.sujet_commentaire, commentaires.contenu_comment, commentaires.date_creation_comment, commentaires.signalement, chapitres.id as chapitre
@@ -25,6 +30,10 @@ class CommentaireTable extends Table {
             ORDER BY commentaires.date_creation_comment DESC" ,[$chapitre_id], false);
     }
 
+    /**
+     * Sélectionne tous les commentaires en plaçant les commentaires signalé en tête de liste
+     * @return mixed
+     */
     public function allBySignal(){
         return $this->requete("
             SELECT commentaires.id, commentaires.sujet_commentaire, commentaires.contenu_comment, commentaires.date_creation_comment, commentaires.signalement, commentaires.chapitre_id

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="fr-FR">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -26,7 +26,7 @@
     </div>
 </nav>
 
-<div class="container">
+<div class="container" >
 
     <div class="starter-template" style="padding-top: 100px;">
         <?= $content; ?>

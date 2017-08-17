@@ -9,6 +9,10 @@ class ChapitreTable extends Table{
     protected $table = 'chapitres';
 
 
+    /**
+     * Récupère les chapitres publiés et les affiche en commençant par le plus ancien.
+     * @return mixed
+     */
     public function chapitresPublies(){
         return $this->requete("
             SELECT chapitres.id, chapitres.titre_chapitre, chapitres.contenu_chapitre, chapitres.date_creation_chapitre, statuts.titre as statut
@@ -17,33 +21,6 @@ class ChapitreTable extends Table{
             WHERE chapitres.statut_id =2
             ORDER BY chapitres.date_creation_chapitre ASC");
     }
-
-    /**
-     * Récupère les derniers chapitres
-     * @return array
-     */
-    public function last(){
-        return $this->requete("
-            SELECT chapitres.id, chapitres.titre_chapitre, chapitres.contenu_chapitre, chapitres.date_creation_chapitre, statuts.titre as statut
-            FROM chapitres
-            LEFT JOIN statuts ON statut_id = statuts.id
-            ORDER BY chapitres.date_creation_chapitre ASC");
-    }
-
-    /**
-     * Récupère les derniers chapitres ayant le statut demandé
-     * @param $statut_id int
-     * @return array
-     */
-    public function lastByStatut(){
-        return $this->requete("
-            SELECT chapitres.id, chapitres.titre_chapitre, chapitres.contenu_chapitre, chapitres.date_creation_chapitre, statuts.titre as statut
-            FROM chapitres
-            LEFT JOIN statuts ON statut_id = statuts.id
-            WHERE chapitres.statut_id =?
-            ORDER BY chapitres.date_creation_chapitre ASC", [statut_id]);
-    }
-
 
     /**
      * Récupère un chapitre en liant le statut associé
@@ -57,5 +34,4 @@ class ChapitreTable extends Table{
             LEFT JOIN statuts ON statut_id = statuts.id
             WHERE chapitres.id = ?", [$id], true);
     }
-
 }

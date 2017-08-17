@@ -1,4 +1,4 @@
-<?php
+<?php //contient le tableau des paramètres permettant la connexion à la base de données.
 return array(
     "db_user" => "root",
     "db_pass" => "",

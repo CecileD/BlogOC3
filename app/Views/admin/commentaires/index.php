@@ -1,7 +1,7 @@
 <h1>Administrer les commentaires</h1>
-<div class="col-sm-12">
-    <p><a href="index.php?p=admin.chapitres.index">Retour à l'administration des chapitres</a></p>
-    <table class="table">
+
+<p><a href="index.php?p=admin.chapitres.index">Retour à l'administration des chapitres</a></p>
+<table class="table">
         <thead>
             <tr>
                 <td>ID</td>
@@ -31,7 +31,6 @@
             <?php endforeach; ?>
         </tbody>
     </table>
+<p><a href="index.php?p=admin.chapitres.index">Retour à l'administration des chapitres</a></p>
 
-    <p><a href="index.php?p=admin.chapitres.index">Retour à l'administration des chapitres</a></p>
-</div>
 

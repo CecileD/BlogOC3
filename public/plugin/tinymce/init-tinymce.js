@@ -1,6 +1,6 @@
 tinymce.init({
-    /* replace textarea having class .tinymce with tinymce editor */
-    selector: "textarea",
+    /* replace textarea having class tinymce with tinymce editor */
+    selector: "textarea#1",
     language: 'fr_FR',
 
 

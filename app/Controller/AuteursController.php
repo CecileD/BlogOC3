@@ -8,6 +8,9 @@ use \App;
 
 class AuteursController extends AppController {
 
+    /**
+     *Gestion de la connexion
+     */
     public function connexion(){
         $errors = false;
         if(!empty($_POST)){
@@ -21,5 +24,4 @@ class AuteursController extends AppController {
         $form = new BootstrapForm($_POST);
         $this->render('auteurs.connexion', compact('form', 'errors'));
     }
-
 }

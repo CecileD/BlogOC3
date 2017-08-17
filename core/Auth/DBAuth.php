@@ -18,20 +18,21 @@ class DBAuth {
         return false;
     }
 
-    /**
-     * @param $username
-     * @param $password
-     * @return boolean
-     */
     public function connexion($username, $password){
         $user = $this->db->prepare('SELECT * FROM auteurs WHERE pseudo_auteur = ?', [$username], null, true);
-        $hash=$user->motdepasse_auteur;
-        if($user and password_verify($password,$hash)){
-                return true;}
-        else {
-                return false;}
+        if($user){
+            if(password_verify($password,$user->motdepasse_auteur)) {
+                $_SESSION['auth'] = $user->id;
+                return true;
+            }
+        }
+        return false;
     }
 
+    /**
+     * Permet de vérifier si l'utilisateur est connecté lorsqu'il accède aux url prefixées admin
+     * @return bool
+     */
     public function estConnecte(){
         return isset($_SESSION['auth']);
     }

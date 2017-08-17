@@ -1,17 +1,14 @@
 <h1>Administrer les chapitres</h1>
-<div class="col-sm-12">
-<p>
-    <a href="?p=admin.chapitres.add" class="btn btn-success">Ajouter</a>
-</p>
 
+<p><a href="?p=admin.chapitres.add" class="btn btn-success">Ajouter</a></p>
 <table class="table">
     <thead>
-    <tr>
-        <td>ID</td>
-        <td>Titre du chapitre</td>
-        <td>Extrait</td>
-        <td>Actions</td>
-    </tr>
+        <tr>
+            <td>ID</td>
+            <td>Titre du chapitre</td>
+            <td>Extrait</td>
+            <td>Actions</td>
+        </tr>
     </thead>
     <tbody>
         <?php foreach($chapitres as $chapitre): ?>
@@ -31,6 +28,6 @@
     </tbody>
 </table>
 <p><a href="index.php?p=admin.commentaires.index">Aller à l'administration des commentaires</a></p>
-</div>
+
 
 

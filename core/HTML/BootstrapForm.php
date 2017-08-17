@@ -3,7 +3,8 @@ namespace Core\HTML;
 class BootstrapForm extends Form{
 
     /**
-     * @param $html string Code HTML à entourer
+     * Met en forme le code html passé en paramétre
+     * @param $html string
      * @return string
      */
     protected function surround($html){
@@ -19,10 +20,12 @@ class BootstrapForm extends Form{
     public function input($name, $label, $options = []){
         $type = isset($options['type']) ? $options['type'] : 'text';
         $label = '<label>' . $label . '</label>';
-        if($type === 'textarea'){
-            $input = '<textarea name="' . $name . '" class="form-control">' . $this->getValue($name) . '</textarea>';
-        } else{
-            $input = '<input type="' . $type . '" name="' . $name . '" value="' . $this->getValue($name) . '" class="form-control">';
+        if($type === 'textareatinymce') {
+            $input = '<textarea name="' . $name . '" class="form-control" id="1">' . $this->getValue($name) . '</textarea>';
+            }elseif($type === 'comment'){
+                $input = '<textarea name="' . $name . '" class="form-control">' . $this->getValue($name) . '</textarea>';
+            }else{
+                $input = '<input type="' . $type . '" name="' . $name . '" value="' . $this->getValue($name) . '" class="form-control">';
         }
         return $this->surround($label . $input);
     }
@@ -45,6 +48,6 @@ class BootstrapForm extends Form{
      * @return string
      */
     public function submit(){
-        return $this->surround('<button type="submit" class="btn btn-primary">Envoyer</button>');
+        return $this->surround('<button type="submit" class="btn btn-success">Envoyer</button>');
     }
 }

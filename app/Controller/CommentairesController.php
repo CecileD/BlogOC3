@@ -10,7 +10,6 @@ class CommentairesController extends AppController
     public function __construct(){
         parent::__construct();//Appelle le constructeur parent qui injecte le chemin
         $this->loadModel('Commentaire');
-        $this->loadModel('Chapitre');
     }
     public function signaler(){
         if (!empty($_POST)) {
